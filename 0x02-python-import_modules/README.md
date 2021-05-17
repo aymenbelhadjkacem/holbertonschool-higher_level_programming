@@ -1,1 +1,1 @@
-Project 2 - Import and modules
+0x02. Python - import & modules
