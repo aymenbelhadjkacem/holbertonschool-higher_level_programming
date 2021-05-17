@@ -1,1 +1,1 @@
-dzdz
+First project of Python!
