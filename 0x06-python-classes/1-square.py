@@ -1,5 +1,8 @@
-#empty class Square 
+
 #!/usr/bin/python3
-class Square: 
-    def __init__(self, size):
-        self.__size = size
+""" Module Sqaure """
+class Square:
+    """Empty Square class"""
+    def __init__(self,size):
+        self.__size=size
+    pass
