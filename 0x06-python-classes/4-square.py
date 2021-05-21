@@ -8,7 +8,7 @@ class Square:
     def __init__(self, size=0):
         """if size not integer test raise expectation"""
         """ attribute size (int): Size of square"""
-        self.__size=size
+        self.__size = size
     """are function defintion"""
     def area(self):
         """return the area of square"""
