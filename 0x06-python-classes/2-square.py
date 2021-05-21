@@ -1,5 +1,3 @@
-
-
 #!/usr/bin/python3
 """ Module Sqaure """
 class Square:
@@ -8,6 +6,6 @@ class Square:
         self.__size=size
         if not type(self.__size) is int:
             raise TypeError("only integers are allowed")
-        if (self.raise < 0):
+        if self.raise < 0:
             raise ValueError("self must be positive")
     pass
