@@ -8,7 +8,7 @@ class Square:
     def __init__(self, size=0):
         """if size not integer test raise expectation"""
         """ attribute size (int): Size of square"""
-        if type(size) != int:
+        if type(size) != Number:
             raise TypeError("must be int")
             """second test if size is negative it must be positive"""
         elif size < 0:
