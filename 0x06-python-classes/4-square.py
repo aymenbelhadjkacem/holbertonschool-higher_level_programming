@@ -8,31 +8,25 @@ class Square:
     def __init__(self, size=0):
         """if size not integer test raise expectation"""
         """ attribute size (int): Size of square"""
-        if type(size) != int:
-            raise TypeError("size must be an integer")
-            """second test if size is negative it must be positive"""
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-            """if size is positive init it"""
-        else:
-            self.__size = size
-    pass
+        self.__size=size
     """are function defintion"""
     def area(self):
         """return the area of square"""
         return self.__size**2
     """getter of size"""
+    @property
     def size(self):
         return self.__size
     """setter of size"""
-    def size(self, size):
+    @size.setter
+    def size(self, newsize):
         """if size not integer test raise expectation"""
         """ attribute size (int): Size of square"""
-        if type(size) != int:
+        if type(newsize) != int:
             raise TypeError("size must be an integer")
             """second test if size is negative it must be positive"""
-        elif size < 0:
+        elif newsize < 0:
             raise ValueError("size must be >= 0")
             """if size is positive init it"""
         else:
-            self.__size = size
+            self.__size = newsize
