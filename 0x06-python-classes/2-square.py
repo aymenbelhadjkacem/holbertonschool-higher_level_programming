@@ -10,9 +10,9 @@ class Square:
         if type(size) != int:
             raise TypeError("must be int")
         """second test if size is negative it must be positive"""
-        if size < 0:
+        elif size < 0:
             raise ValueError("Value Error must be positive")
         """if size is positive init it"""
-        if size >= 0:
+        else size >= 0:
             self.__size = size
     pass
