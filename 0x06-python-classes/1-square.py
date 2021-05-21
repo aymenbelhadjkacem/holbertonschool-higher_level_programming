@@ -7,12 +7,12 @@ class Square:
         Attributes:
             size (int): Size of square
     """
-	__size ;
-	def __init__(self, size):
+    __size ;
+    def __init__(self, size):
         """
         Initialize methode
         Args:
             size (int): size of square
         """
-        	self.__size=size;
+        self.__size=size;
 
