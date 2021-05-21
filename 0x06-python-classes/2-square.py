@@ -5,11 +5,8 @@
 class Square:
     """Empty Square class"""
     def __init__(self,size=0):
-        try
-            self.size = int(self.size)
-            self.size >= 0 
-        expect 	TypeError
-           print ('TypeError')
-        expect ValueError
-           print('ValueError')
+        if not type(self.size) is int:
+            raise TypeError("only integers are allowed")
+        if (self.raise < 0):
+            raise ValueError("self must be positive")
     pass
