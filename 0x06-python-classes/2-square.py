@@ -13,6 +13,6 @@ class Square:
         elif size < 0:
             raise ValueError("Value Error must be positive")
         """if size is positive init it"""
-        else size >= 0:
+        else:
             self.__size = size
     pass
