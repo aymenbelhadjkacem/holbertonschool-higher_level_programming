@@ -8,6 +8,7 @@ class Square:
             raise TypeError
         if size < 0:
             print("Must be positive")
-            raise ValueError
-    self.__size=size
+            raise ValueErro
+        if size >= 0:
+            self.__size=size
     pass
