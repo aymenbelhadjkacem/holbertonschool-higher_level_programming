@@ -9,10 +9,10 @@ class Square:
         """if size not integer test raise expectation"""
         """ attribute size (int): Size of square"""
         if type(size) != int:
-            raise TypeError("must be int")
+            raise TypeError("size must be an integer")
             """second test if size is negative it must be positive"""
         elif size < 0:
-            raise ValueError("Value Error must be positive")
+            raise ValueError("size must be >= 0")
             """if size is positive init it"""
         else:
             self.__size = size
