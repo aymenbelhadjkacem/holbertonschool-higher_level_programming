@@ -19,5 +19,5 @@ class Square:
     pass
     def area(self):
         area = self.__size*self.__size
-        print("Area: "%d,area)
+        print("Area: ",area)
     pass
