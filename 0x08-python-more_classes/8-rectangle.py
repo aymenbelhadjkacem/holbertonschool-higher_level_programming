@@ -1,27 +1,36 @@
 #!/usr/bin/python3
+"""This is a docstrings.
+    for a new class: Rectangle.
+"""
 
 
 class Rectangle:
-    "This is my custom class for Rectangle"
+    """class to defines a rectangle"""
     number_of_instances = 0
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        type(self).number_of_instances += 1
-        self.width = width
-        self.height = height
+        self.__height = height
+        self.__width = width
+        Rectangle.number_of_instances += 1
 
-    @property
-    def width(self):
-        return self.__width
+    def __str__(self):
+        my_str = ""
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        for i in range(self.__height):
+            for j in range(self.__width):
+                my_str += str(self.print_symbol)
+            if i < self.__height - 1:
+                my_str += "\n"
+        return (my_str)
 
-    @width.setter
-    def width(self, value):
-        if isinstance(value, int) is False:
-            raise TypeError("width must be an integer")
-        if value < 0:
-            raise ValueError("width must be >= 0")
-        self.__width = value
+    def __repr__(self):
+        return ("Rectangle({}, {})".format(self.__width, self.__height))
+
+    def __del__(self):
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
 
     @property
     def height(self):
@@ -29,42 +38,42 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        if isinstance(value, int) is False:
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
 
-    @staticmethod
-    def bigger_or_equal(rect_1, rect_2):
-        area_1 = rect_1.width * rect_1.height
-        area_2 = rect_2.width * rect_2.height
-        if isinstance(rect_1, Rectangle) is False:
-            raise TypeError("rect_1 must be an instance of Rectangle")
-        if isinstance(rect_2, Rectangle) is False:
-            raise TypeError("rect_2 must be an instance of Rectangle")
-        if (area_1 >= area_2):
-            return (rect_1)
-        return (rect_2)
+    @property
+    def width(self):
+        return self.__width
+
+    @width.setter
+    def width(self, value):
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
+        self.__width = value
 
     def area(self):
-        return self.width * self.height
+        return self.__height * self.__width
 
     def perimeter(self):
-        p = (self.width + self.height) * 2
+        '''Rectangle Perimeter method.
+        Returns:
+            the rectangle Perimeter.
+        '''
         if self.width == 0 or self.height == 0:
-            p = 0
-        return p
+            return 0
+        return 2*(self.__height + self.__width)
 
-    def __repr__(self):
-        return 'Rectangle(%s, %s)' % (self.width, self.height)
-
-    def __str__(self):
-        string = ""
-        for i in range(self.height):
-            string += (str(self.print_symbol) * self.width + "\n")
-        return string[:-1]
-
-    def __del__(self):
-        type(self).number_of_instances -= 1
-        print("Bye rectangle...")
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() < rect_2.area():
+            return (rect_2)
+        return(rect_1)
