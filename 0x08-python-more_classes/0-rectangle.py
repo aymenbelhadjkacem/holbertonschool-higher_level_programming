@@ -1,7 +1,11 @@
 #!/usr/bin/python3
+"""This is a docstrings.
+    for a new class: Rectangle.
+"""
 
 
 class Rectangle:
-    "This is my custom class for Rectangle"
-    def __init__(self):
-        pass
+    """this is an empty class
+        that defines a Rectangle
+    """
+    pass
