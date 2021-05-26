@@ -1,23 +1,28 @@
 #!/usr/bin/python3
+"""This is a docstrings.
+    for a new class: Rectangle.
+"""
 
 
 class Rectangle:
-    "This is my custom class for Rectangle"
+    """class to defines a rectangle"""
     def __init__(self, width=0, height=0):
-        self.width = width
-        self.height = height
+        self.__height = height
+        self.__width = width
 
-    @property
-    def width(self):
-        return self.__width
+    def __str__(self):
+        my_str = ""
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        for i in range(self.__height):
+            for j in range(self.__width):
+                my_str += "#"
+            if i < self.__height - 1:
+                my_str += "\n"
+        return (my_str)
 
-    @width.setter
-    def width(self, value):
-        if isinstance(value, int) is False:
-            raise TypeError("width must be an integer")
-        if value < 0:
-            raise ValueError("width must be >= 0")
-        self.__width = value
+    def __repr__(self):
+        return ("Rectangle({}, {})".format(self.__width, self.__height))
 
     @property
     def height(self):
@@ -25,26 +30,32 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        if isinstance(value, int) is False:
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
 
+    @property
+    def width(self):
+        return self.__width
+
+    @width.setter
+    def width(self, value):
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
+        self.__width = value
+
     def area(self):
-        return self.width * self.height
+        return self.__height * self.__width
 
     def perimeter(self):
-        p = (self.width + self.height) * 2
+        '''Rectangle Perimeter method.
+        Returns:
+            the rectangle Perimeter.
+        '''
         if self.width == 0 or self.height == 0:
-            p = 0
-        return p
-
-    def __repr__(self):
-        return 'Rectangle(%s, %s)' % (self.width, self.height)
-
-    def __str__(self):
-        string = ""
-        for i in range(self.height):
-            string += ("#" * self.width + "\n")
-        return string[:-1]
+            return 0
+        return 2*(self.__height + self.__width)
