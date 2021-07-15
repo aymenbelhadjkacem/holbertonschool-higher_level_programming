@@ -7,4 +7,4 @@ def only_diff_elements(set_1, set_2):
     for b in (set_2):
         if (list(set_2).count(b) == 1 and list(set_1).count(b) == 0):
             new_list.append(b)
-return new_list
+    return new_list
