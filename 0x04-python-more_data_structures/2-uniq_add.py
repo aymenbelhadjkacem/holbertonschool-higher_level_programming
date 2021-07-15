@@ -8,4 +8,4 @@ def uniq_add(my_list=[]):
             new_list.append(my_list[i])
     for i in new_list:
         val += i
-return (val)
+    return (val)
