@@ -1,0 +1,2 @@
+#DESCRIPTION DE LA TABLES hbtn_0c_0
+SHOW CREATE TABLE first_table;

@@ -1,0 +1,2 @@
+#CALCULER LE SCORE AVERAGE DE TOUS LES LIGNES 
+SELECT AVG(score) AS average FROM second_table
