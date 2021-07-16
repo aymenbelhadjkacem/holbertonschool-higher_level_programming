@@ -1,21 +1,32 @@
 #!/usr/bin/python3
+"""
+Module Devide Matrix
+    """
+
+
 def matrix_divided(matrix, div):
-    types = (int, float)
-    errorMsg = "matrix must be a matrix (list of lists) of integers/floats"
-    if type(matrix) is not list:
-        raise TypeError(errorMsg)
-    if (isinstance(div, types) is False):
+    """
+        Devides all elements in matrix
+        Args:
+            matrix (list[list[int/float]]) : matrice
+            div (int/float) Devider
+        Raise:
+            TypeError: div not int or float
+            TypeError: matix is not a list of list of number
+            ZeroDivisionError: Div is 0
+        Return : New matrix Devided
+        """
+    if type(div) not in [int, float]:
         raise TypeError("div must be a number")
-    c = list(map(lambda x:
-             list(map(lambda i: isinstance(i, types), x)), matrix))
-    for i in c:
-        if False in i:
-            raise TypeError(errorMsg)
-    matrixlen = list(map(lambda x: len(x), matrix))
-    if (len(set(matrixlen)) != 1):
+    if div == 0:
+        raise ZeroDivisionError('division by zero')
+    if type(matrix) is not list or not all((type(l) is list)for l in matrix) \
+        or not all((isinstance(n, (int, float))for n in l)for l in matrix) \
+            or len(matrix[0]) == 0:
+        raise TypeError(
+                "matrix must be a matrix "
+                "(list of lists) of integers/floats")
+    l = len(matrix[0])
+    if not all((len(x) == l)for x in matrix):
         raise TypeError("Each row of the matrix must have the same size")
-    if div is 0:
-        raise ZeroDivisionError("division by zero")
-    new_matrix = list(map(lambda x: list(map(lambda i:
-                      round(i / div, 2), x)), matrix))
-    return (new_matrix)
+    return [list(map(lambda x: round(x / div, 2), r))for r in matrix]
