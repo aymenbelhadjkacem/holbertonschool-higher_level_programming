@@ -1,13 +1,13 @@
 #!/usr/bin/node
-if(argv.length==0)
+import { argv } from 'process';
+
+if (argv.length === 0)
 {
 console.log('No argument');
-}
-else if (argv.length==1)
+}else if (argv.length === 1)
 {
 console.log('Argument found');
-}
-else
+}else
 {
 console.log('Arguments found');
 }
