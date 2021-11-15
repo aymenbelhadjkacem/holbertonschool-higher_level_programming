@@ -3,7 +3,7 @@
 
 from urllib import request
 
-# if __name__ == "__main__":
+if __name__ == "__main__":
     with request.urlopen("https://intranet.hbtn.io/status") as page:
         content = page.read()
         print("Body response:")
